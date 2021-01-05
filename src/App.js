@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
+import  { Router, Link } from "@reach/router";
+import Details from './Details';
 
-function App() {
+import SearchParams from './SearchParams';
+const App = () => {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <React.StrictMode>
+      
+    <div>
+      <header>
+    <Link to="/">Adopt Me!</Link>
       </header>
+      <Router>
+       <SearchParams path="/"/> 
+       <Details path="/details/:id"/>
+      </Router>
+      
     </div>
+    </React.StrictMode>
   );
-}
+};
+
+ReactDOM.render(<App/>, document.getElementById("root"));
 
 export default App;
